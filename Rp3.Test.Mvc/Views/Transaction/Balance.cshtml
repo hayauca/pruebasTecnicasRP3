@@ -1,0 +1,34 @@
+﻿@model List<Rp3.Test.Mvc.Models.Balance>
+@{
+    ViewBag.Title = "Balance";
+}
+
+<div class="jumbotron">
+    <h1>Balance</h1>
+    <p class="lead">Resumen por Categoría</p>    
+</div>
+
+
+<div class="row">
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Saldo</th>            
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @string.Format("{0:c2}", item.saldo)
+                </td>
+             
+            </tr>}
+        </tbody>
+    </table>
+</div>

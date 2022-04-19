@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = null;
+}
+
+@section Css {
+
+
+    <link href="~/css_/login.css" rel="stylesheet" />
+}
+
+
+<style>
+    .btn-color {
+        background-color: #0e1c36;
+        color: #fff;
+    }
+
+    .profile-image-pic {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+    }
+
+
+
+    .cardbody-color {
+        background-color: #ebf2fa;
+    }
+
+    #ShowCase {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .container {
+        margin: auto;
+        border: 3px solid #ebf2fa;
+        width: 30%;
+        padding: 10px;
+    }
+
+    .container2 {
+        margin: auto;
+        width: 50%;
+        /*border: 3px solid green;*/
+        /*padding: 10px;*/
+    }
+
+    .container4 {
+        margin: auto;
+        width: 45%;
+       
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+
+
+    input[type="text"] {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+    input[type="password"] {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+    button[type="submit"] {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .container3 h2 {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+</style>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div id="ShowCase" class="col-md-12">
+                    <h2>Login</h2>
+                </div>                 
+                    <div class="col-md-12">
+
+                        <form class="col-md-12">
+
+                            <div class="container4">
+                                <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-4"
+                                     width="250px" alt="profile">
+                            </div>
+
+                            <div class="container2">
+                                <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+                                       placeholder="User Name">
+                            </div>
+                            <div class="container2">
+                                <input type="password" class="form-control" id="password" placeholder="password">
+                            </div>
+                            <div class="container2"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+
+
+
+

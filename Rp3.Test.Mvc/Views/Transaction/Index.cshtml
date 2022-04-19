@@ -1,0 +1,156 @@
+﻿@model List<Rp3.Test.Mvc.Models.TransactionViewModel>
+@using Rp3.Test.Common.Models
+@{ ViewBag.Title = "Home Page"; }
+
+@section Css {
+
+}
+
+<div class="jumbotron">
+    <h1>Mis Transacciones</h1>
+    <p class="lead">Registro de Ingresos y Gastos</p>
+
+    <a class="btn btn-default" id="btnNuevo">Nuevo</a>
+</div>
+
+<div class="row">
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Categoría</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Valor</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+
+        <a class="btn btn-primary" id="btnEditar" TransactionId="@item.TransactionId" TransactionTypeId="@item.TransactionTypeId" CategoryId="@item.CategoryId" ShortDescription="@item.ShortDescription" Amount="@item.Amount" Notes="@item.Notes" RegisterDate=@item.RegisterDate>Editar</a>
+
+    </td>
+    <td>
+        @item.TransactionId
+    </td>
+    <td>
+        @string.Format("{0:dd/MMM/yyyy}", item.RegisterDate)
+    </td>
+    <td>
+        @item.CategoryName
+    </td>
+    <td>
+        @item.TransactionType
+    </td>
+    <td>
+        @item.ShortDescription
+    </td>
+    <td>
+        @string.Format("{0:c2}", item.Amount)
+    </td>
+    <td>
+        @item.Notes
+    </td>
+</tr>}
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="ModalActualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Transacciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div id="divTransacionId" class="form-group">
+                        <label for="recipient-name" class="col-form-label"> ID Transaccion:</label>
+                        <input disabled type="text" class="form-control" id="modaltxtTransactionId">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Fecha:</label>
+                        <input id="Iddatetime" type="datetime-local" class="form-control" name="partydate" value="">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Categoria:</label>
+                        @*<input type="text" class="form-control" id="modaltxtCategoryId"></input>*@
+
+
+                        <select id="modaltxtCategoryId" class="form-control form-control-sm">
+                            @*<option value="0">Seleccionar</option>*@
+                            @foreach (Category Item in ViewBag.Categories)
+                            {
+
+                <option value="@Item.CategoryId">@Item.Name</option>}
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Tipo:</label>
+                        @*<input type="text" class="form-control" id="modaltxtTransactionTypeId"></input>*@
+
+                        <select id="modaltxtTransactionTypeId" class="form-control form-control-sm">
+                            @*<option value="0">Seleccionar</option>*@
+                            @foreach (TransactionType Item in ViewBag.TransactionTypes)
+                            {
+
+                <option value="@Item.TransactionTypeId">@Item.Name</option>
+}
+                        </select>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Descripcion:</label>
+                        <input type="text" class="form-control" id="modaltxtShortDescription"></input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Valor:</label>
+                        <input type="text" class="form-control" id="modaltxtAmount" onKeyPress="return soloNumeros(event)"></input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Notas:</label>
+                        <textarea class="form-control" id="modaltxtNotes"></textarea>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button id="btnModalGrabar" type="button" class="btn btn-primary" data-request-url="@Url.Action("Grabar", "Transaction")">Grabar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js_/Transaction.js"></script>
+
+
+
+
+
+}

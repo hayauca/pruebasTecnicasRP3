@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Login2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<style>
+
+    .btn-color {
+        background-color: #0e1c36;
+        color: #fff;
+    }
+
+    .profile-image-pic {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+    }
+
+
+    h2 {
+        text-align: center;
+    }
+
+        h2 a {
+            color: rgb(50,50,50);
+            text-decoration: none;
+        }
+
+    .form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ebf2fa;
+    }
+
+        .form input {
+            width: 90%;
+            height: 30px;
+            margin: .5rem
+        }
+
+        .form button {
+            padding: .5em 1em;
+            border: none;
+          
+            cursor: pointer;
+        }
+
+ 
+</style>
+
+<h2>Login</a></h2>
+
+
+<form class="form">
+  
+
+    <div class="text-center">
+        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+             width="200px" alt="profile">
+    </div>
+
+    <div class="text-center">
+        <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+               placeholder="User Name">
+    </div>
+    <div class="text-center">
+        <input type="password" class="form-control" id="password" placeholder="password">
+    </div>
+
+    <div class="text-center"><button type="button" id="btnIngresar" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
+
+
+</form>
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js_/login.js"></script>
+
+}
